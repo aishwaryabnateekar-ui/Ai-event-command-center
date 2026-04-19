@@ -30,12 +30,30 @@
 
     /* Typography */
     --font-main: 'Poppins', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+}
+
+/* RBAC Role Variable Swaps */
+body.role-security {
+    --bg-dark: #120303;
+    --border-subtle: rgba(255, 77, 77, 0.15);
+    --border-focus: rgba(255, 77, 77, 0.4);
+    --pink-primary: #ff3333;
+    --blue-primary: #ff8c1a;
+}
+body.role-organizer {
+    --bg-dark: #0a0512;
+    --border-subtle: rgba(77, 255, 255, 0.15);
+    --border-focus: rgba(77, 255, 255, 0.4);
+    --pink-primary: #a64dff;
+    --blue-primary: #4dffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-main);
 }
 
 body {
@@ -49,13 +67,24 @@ body {
 }
 
 /* Typography Enhancements */
+/* Typography Enhancements */
 h1,
 h2,
 h3,
 h4,
-.panel-title {
-    font-weight: 600;
+.panel-title,
+.stat-value,
+.brand-text {
+    font-family: var(--font-heading);
+    font-weight: 700;
     letter-spacing: 0.05em;
+    text-shadow: 0 0 15px rgba(255, 77, 166, 0.3);
+}
+
+.brand-text {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* Animations */
@@ -225,6 +254,20 @@ h4,
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* RBAC Display Restrictors */
+body.role-security .nav-item[data-target="Events"],
+body.role-security .nav-item[data-target="Attendees"],
+body.role-security .nav-item[data-target="Analytics"],
+body.role-security .nav-item[data-target="Settings"] {
+    display: none !important;
+}
+
+body.role-organizer .nav-item[data-target="Dashboard"],
+body.role-organizer .nav-item[data-target="Analytics"],
+body.role-organizer .nav-item[data-target="Settings"] {
+    display: none !important;
 }
 
 .sidebar-footer {
@@ -1013,6 +1056,27 @@ input:checked+.slider-toggle:before {
 
 .relative-container {
     position: relative;
+}
+
+.relative-container { position: relative; }
+
+/* Emergency Mode Override */
+body.emergency-mode {
+    --bg-dark: #1a0505 !important;
+    --bg-sidebar: rgba(25, 5, 5, 0.9) !important;
+    --bg-card: rgba(35, 10, 10, 0.8) !important;
+    --bg-card-hover: rgba(50, 15, 15, 0.9) !important;
+    --border-subtle: rgba(255, 50, 50, 0.3) !important;
+    --border-focus: rgba(255, 50, 50, 0.6) !important;
+    --pink-primary: #ff1a1a !important;
+    --blue-primary: #ff4d4d !important;
+    --status-green: #ff1a1a !important;
+    --status-yellow: #ff1a1a !important;
+    animation: flashRedPulse 2s infinite alternate;
+}
+@keyframes flashRedPulse {
+    from { box-shadow: inset 0 0 0 rgba(255,0,0,0); }
+    to { box-shadow: inset 0 0 80px rgba(255,0,0,0.3); }
 }
 
 @media (max-width: 768px) {

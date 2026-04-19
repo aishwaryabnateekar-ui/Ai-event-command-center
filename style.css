@@ -41,6 +41,7 @@ body.role-security {
     --pink-primary: #ff3333;
     --blue-primary: #ff8c1a;
 }
+
 body.role-organizer {
     --bg-dark: #0a0512;
     --border-subtle: rgba(77, 255, 255, 0.15);
@@ -483,24 +484,24 @@ body.role-organizer .nav-item[data-target="Settings"] {
 }
 
 .dashboard-grid {
-    padding: 2.5rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    max-width: 1400px;
+    gap: 3rem;
+    max-width: 1500px;
     margin: 0 auto;
     width: 100%;
 }
 
 /* Glassmorphism Cards */
 .card {
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 12, 25, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
     position: relative;
     z-index: 10;
@@ -511,9 +512,21 @@ body.role-organizer .nav-item[data-target="Settings"] {
 }
 
 .card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(77, 166, 255, 0.05);
-    border-color: var(--border-focus);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(77, 166, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main AI Insight Panel Focus */
+.ai-insights-panel {
+    border: 1px solid var(--pink-primary);
+    box-shadow: 0 0 35px rgba(255, 77, 166, 0.15), inset 0 0 25px rgba(255, 77, 166, 0.05);
+    background: linear-gradient(160deg, rgba(25, 5, 20, 0.55), rgba(10, 15, 30, 0.65));
+}
+
+.ai-insights-panel:hover {
+    box-shadow: 0 0 50px rgba(255, 77, 166, 0.3), inset 0 0 35px rgba(255, 77, 166, 0.1);
+    border-color: var(--pink-primary);
 }
 
 .stats-row {
@@ -1058,7 +1071,9 @@ input:checked+.slider-toggle:before {
     position: relative;
 }
 
-.relative-container { position: relative; }
+.relative-container {
+    position: relative;
+}
 
 /* Emergency Mode Override */
 body.emergency-mode {
@@ -1074,9 +1089,15 @@ body.emergency-mode {
     --status-yellow: #ff1a1a !important;
     animation: flashRedPulse 2s infinite alternate;
 }
+
 @keyframes flashRedPulse {
-    from { box-shadow: inset 0 0 0 rgba(255,0,0,0); }
-    to { box-shadow: inset 0 0 80px rgba(255,0,0,0.3); }
+    from {
+        box-shadow: inset 0 0 0 rgba(255, 0, 0, 0);
+    }
+
+    to {
+        box-shadow: inset 0 0 80px rgba(255, 0, 0, 0.3);
+    }
 }
 
 @media (max-width: 768px) {
